@@ -1,0 +1,448 @@
+*{
+  text-transform: capitalize;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+:root{
+  --width-and-border: 4px;
+}
+
+.start{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(8, 138, 8);
+  z-index: 100000;
+}
+
+.start h1{
+  color: #fff;
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.start p {
+  color: #fff;
+}
+
+.start .p-two{
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.start .btn{
+  padding: 20px 30px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  box-shadow: 0 7px 0 #ececec;
+  font-size: 35px;
+  font-weight: bold;
+  border: 1px solid #fff;
+}
+
+.start .btn:hover{
+  box-shadow: 0 5px 0 #ececec;
+  transform: translateY(-4px);
+}
+
+.start .btn:active{
+  transform: translateY(0);
+  box-shadow: 0 2px 0 #ececec;
+}
+
+.restart{
+  border: 1px solid #fff;
+  outline: none;
+  padding: 15px 20px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: .6s;
+}
+
+.restart:hover{
+  border: none;
+  background-color: #0f0;
+}
+
+.container{
+  margin: 30px auto;
+  width: 1300px;
+}
+
+.game-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.game-info .category span{
+  text-transform: uppercase;
+  color: #0f0;
+  font-weight: bold;
+}
+
+hr{
+  border: 1px solid rgb(199, 206, 199);
+  border-radius: 3px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hangman.wrong-1 .draw{
+  display: block;
+}
+
+.hangman.wrong-2 .stand:before{
+  display: block;
+}
+
+.hangman.wrong-3 .hang::before{
+  display: block;
+}
+
+.hangman.wrong-4 .hang::after{
+  display: block;
+}
+
+.hangman.wrong-5 .rope::before{
+  display: block;
+}
+
+.hangman.wrong-6 .head{
+  display: block;
+}
+
+.hangman.wrong-7 .body::before{
+  display: block;
+}
+
+.hangman.wrong-8 .hands{
+  display: block;
+}
+
+.hangman.wrong-9 .legs{
+  display: block;
+}
+
+.hangman{
+  flex: 1;
+  padding: 20px;
+  height: 350px;
+  background-color: #ececec;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+}
+
+.draw{
+  position: relative;
+  width: 70px;
+  height: 290px;
+  border-bottom: var(--width-and-border) solid #222;
+  display: none;
+}
+
+.stand:before{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 100%;
+  background-color: #222;
+  left: 50%;
+  margin-left: -2px;
+  display: none;
+}
+
+.hang::before{
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: var(--width-and-border);
+  background-color: #222;
+  left: 35px;
+  top: 15px;
+  display: none;
+}
+
+.hang::after{
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: var(--width-and-border);
+  background-color: #222;
+  left: 151px;
+  top: 15px;
+  display: none;
+}
+
+.rope:before{
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: var(--width-and-border) dashed #222;
+  left: 113px;
+  top: 60px;
+  display: none;
+}
+
+.head{
+  display: none;
+}
+
+.head:before{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: var(--width-and-border) solid #222;
+  left: 128px;
+  top: 75px;
+}
+
+.eys:before{
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background-color: #222;
+  left: 158px;
+  top: 90px;
+}
+
+.eys:after{
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background-color: #222;
+  left: 140px;
+  top: 90px;
+}
+
+.mouth:after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 4px;
+  background-color: #222;
+  transform: skewX(50px);
+  left: 147px;
+  top: 110px;
+  border-radius: 5px;
+}
+
+.body:before{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 100px;
+  background-color: #222;
+  left: 150px;
+  top: 120px;
+  display: none;
+}
+
+.hands{
+  display: none;
+}
+
+.hands:before{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 60px;
+  background-color: #222;
+  left: 125px;
+  top: 130px;
+  border-radius: 0 0 5px 5px;
+  transform: rotate(120deg);
+}
+
+.hands:after{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 60px;
+  background-color: #222;
+  left: 178px;
+  top: 129px;
+  border-radius:0 0 5px 5px ;
+  transform: rotate(-120deg);
+}
+
+.legs{
+  display: none;
+}
+
+.legs:before{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 60px;
+  background-color: #222;
+  left: 174px;
+  top: 207px;
+  border-radius: 5px 5px 0 0;
+  transform: rotate(130deg);
+}
+
+.legs:after{
+  content: "";
+  position: absolute;
+  width: var(--width-and-border);
+  height: 60px;
+  background-color: #222;
+  left: 128px;
+  top: 207px;
+  border-radius: 5px 5px 0 0;
+  transform: rotate(-130deg);
+}
+
+.letters{
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+}
+
+.letters .box-character{
+  line-height: 55px;
+  text-transform: uppercase;
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  background-color: #0f0;
+  margin-right: 13px;
+  margin-bottom: 13px;
+  border-bottom: 1px solid #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  transition: .5s;
+  box-shadow: 0 0 5px #000;
+}
+
+.letters.finished{
+  pointer-events: none;
+}
+
+.letters .box-character.clicked{
+  background-color: #222;
+  opacity: .2;
+  pointer-events: none;
+  transform: rotate(35deg);
+}
+
+.letters span:hover{
+  transform: translateY(-5px);
+  transform: rotate(35deg);
+}
+
+.word-guess{
+  margin: 10px auto;
+  background-color: #ececec;
+  height: 200px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #0f0;
+  border-right: 1px solid #0f0;
+}
+
+.word-guess span{
+  text-align: center;
+  color: #0f0;
+  font-size: 30px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+}
+
+.word-guess span.with-space{
+  border-bottom: none;
+  background: none;
+  position: relative;
+}
+
+.word-guess span.with-space::before{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  background-color: #0f0;
+  transform: translate(-50%, -50%);
+}
+
+.WordCorrect{
+  position: fixed;
+  width: 80%;
+  height: 300px;
+  color: #fff;
+  background-color: rgb(207, 22, 8);
+  font-weight: bold;
+  font-size: 50px;
+  padding: 20px;
+  text-align: center;
+  transition: 10s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px #000;
+  line-height: 1.5;
+  border: 1px solid #fff;
+}
+
+.Lost{
+  text-align: center;
+}
+
+.countWord{
+  position: absolute;
+  left: 48%;
+  background-color: #0f0;
+  border-radius: 3px;
+  padding: 10px;
+  color: #fff;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ff.css">
+  <title>HangMan</title>
+</head>
+<body>
+
+  <div id="start" class="start">
+    <h1>hangMan</h1>
+    <p class="p-one" dir="rtl">hangman <span> او الرجل المشنوق</span> تعطي لك كلمة من فئة مثل البلاد او الحيوانات وتخمين الكلمة التي بعدد حروف معين </p>
+    <p class="p-two">لديك تسع فرص للتخمين</p>
+    <button id="btn" class="btn">Start Game</button>
+  </div>
+
+  <div class="container">
+    <div class="game-info">
+      <div class="game-name">HangMan</div>
+      <div class="category">word from: <span class="category-name"></span> </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="hangman">
+        <div class="draw">
+        <div class="stand"></div>
+        <div class="hang"></div>
+        <div class="rope"></div>
+        <div class="man">
+          <div class="head">
+            <div class="eys"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="body"></div>
+          <div class="hands"></div>
+          <div class="legs"></div>
+        </div>
+        </div>
+      </div>
+      <div class="letters"></div>
+    </div>
+    <hr>
+    <div class="word-guess"></div>
+  </div>
+  <audio id="success" src="success.mp3" preload="auto"></audio>
+  <audio id="fail" src="fail2.mp3" preload="auto"></audio>
+  <audio id="person" src="person.mp3" preload="auto"></audio>
+  <audio id="marr" src="Maniacal.mp3" preload="auto"></audio>
+  <audio id="rr" src="rr.mp3" preload="auto"></audio>
+  <audio id="click" src="click.mp3" preload="auto"></audio>
+  <script src="ff.js"></script>
+</body>
+</html>
