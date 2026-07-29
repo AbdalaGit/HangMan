@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><path d='M30 20 H70 M70 20 V35 M30 20 V80 M20 80 H80' stroke='%2310b981' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='70' cy='45' r='8' stroke='%2310b981' stroke-width='5' fill='none'/></svg>">
+  
+  <!-- SEO Optimization Meta Tags -->
+  <title>لعبة الرجل المشنوق الكلاسيكية | Hangman Arcade Game</title>
+  <meta name="description" content="لعبة الرجل المشنوق الكلاسيكية باللغة الإنجليزية مع تلميحات ذكية ومؤثرات صوتية مميزة. العب Hangman Arcade مجاناً واختبر ذكاءك وحصيلتك اللغوية الآن!">
+  <meta name="keywords" content="لعبة الرجل المشنوق, هانجمان, لعبة تخمين الكلمات, العاب ذكاء, hangman, hangman game, word guessing, play hangman online, free word games, english vocabulary game">
+  <meta name="author" content="AbdalaGit">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://abdalagit.github.io/HangMan/ff.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abdalagit.github.io/HangMan/ff.html">
+  <meta property="og:title" content="لعبة الرجل المشنوق أركيد | Hangman Arcade Game">
+  <meta property="og:description" content="لعبة الرجل المشنوق الكلاسيكية باللغة الإنجليزية مع تلميحات ذكية ومؤثرات صوتية مميزة. العب مجاناً واختبر ذكاءك وحصيلتك اللغوية الآن!">
+  <meta property="og:image" content="https://abdalagit.github.io/HangMan/assets/game-preview.png">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://abdalagit.github.io/HangMan/ff.html">
+  <meta property="twitter:title" content="لعبة الرجل المشنوق أركيد | Hangman Arcade Game">
+  <meta property="twitter:description" content="لعبة الرجل المشنوق الكلاسيكية باللغة الإنجليزية مع تلميحات ذكية ومؤثرات صوتية مميزة. العب مجاناً واختبر ذكاءك وحصيلتك اللغوية الآن!">
+  <meta property="twitter:image" content="https://abdalagit.github.io/HangMan/assets/game-preview.png">
+
+  <!-- Structured Data JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Hangman Arcade",
+    "alternateName": "لعبة الرجل المشنوق",
+    "url": "https://abdalagit.github.io/HangMan/ff.html",
+    "image": "https://abdalagit.github.io/HangMan/assets/game-preview.png",
+    "description": "A highly responsive, modern Hangman game built with HTML, CSS, and pure vanilla JavaScript featuring an elegant emerald theme, real-time audio synthesizers, smart hints, and optimized layouts.",
+    "applicationCategory": "GameApplication",
+    "genre": "Word Game",
+    "browserRequirements": "Requires HTML5, CSS3, JavaScript",
+    "operatingSystem": "All"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- شاشة البداية والترحيب -->
+  <div id="start" class="start">
+    <div class="start-card">
+      <div class="game-logo-text">HANGMAN ARCADE</div>
+      <h1>HangMan</h1>
+      <h2>الرجل المشنوق</h2>
+      <p class="p-one" dir="rtl">لعبة "الرجل المشنوق" الكلاسيكية! سنعطيك كلمة مخفية من فئة محددة وعليك تخمين حروفها حرفاً بحرف قبل اكتمال مشنقة الرجل.</p>
+      
+      <div class="difficulty-selection" dir="rtl">
+        <label class="diff-title">اختر مستوى الصعوبة:</label>
+        <div class="diff-options">
+          <button type="button" id="diff-easy-btn" class="diff-btn active" data-diff="easy">Easy (9 فرص + التلميح)</button>
+          <button type="button" id="diff-hard-btn" class="diff-btn" data-diff="hard">Hard (6 فرص + إخفاء التلميح)</button>
+        </div>
+      </div>
+
+      <p class="p-two" dir="rtl" id="start-lives-info">لديك <span id="start-lives-count">9 فرص</span> خاطئة للتخمين.</p>
+      <button id="btn" class="btn">ابدأ اللعب • Start Game</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- شريط معلومات اللعبة الأعلى -->
+    <div class="game-header">
+      <div class="game-name">
+        Hangman Arcade
+      </div>
+
+      <div class="header-controls">
+        <div class="category">
+          <span class="category-label">Category:</span>
+          <span id="current-category-name" class="category-value">---</span>
+        </div>
+
+        <div class="category">
+          <label for="difficulty-select" class="category-label">Difficulty:</label>
+          <select id="difficulty-select" class="category-dropdown">
+            <option value="easy">Easy (9 Lives)</option>
+            <option value="hard">Hard (6 Lives)</option>
+          </select>
+        </div>
+
+        <div class="header-stats">
+          <div class="stat-badge score-badge" title="Total Score Points">
+            <span class="stat-label">Score:</span> <span id="score-count">0</span>
+          </div>
+          <div class="stat-badge streak-badge" title="Current Win Streak">
+            <span class="stat-label">Streak:</span> <span id="streak-count">0</span>
+          </div>
+          <div class="stat-badge wins-badge" title="Total Wins">
+            <span class="stat-label">Wins:</span> <span id="wins-count">0</span>
+          </div>
+          <button id="sound-toggle-btn" class="sound-toggle-btn" title="Toggle Sound">
+            <span id="sound-icon">Sound: ON</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- محتوى اللعب الرئيسي -->
+    <div class="main-row">
+      <!-- رسمة الرجل المشنوق الكلاسيكية -->
+      <div class="hangman-container">
+        <div class="hangman">
+          <div class="draw">
+            <div class="stand"></div>
+            <div class="hang"></div>
+            <div class="rope"></div>
+            <div class="man">
+              <div class="head">
+                <div class="eys"></div>
+                <div class="mouth"></div>
+              </div>
+              <div class="body"></div>
+              <div class="hands"></div>
+              <div class="legs"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- لوحة العداد الذكية لحساب عدد الحروف المتبقية والفرص -->
+        <div class="game-metrics">
+          <div class="metric-box">
+            <div class="metric-title">Letters Count</div>
+            <div class="metric-value" id="word-letters-count">0</div>
+          </div>
+          <div class="metric-box timer-metric" id="timer-box">
+            <div class="metric-title">Time Left</div>
+            <div class="metric-value" id="timer-value">60s</div>
+          </div>
+          <div class="metric-box warning">
+            <div class="metric-title">Remaining Lives</div>
+            <div class="metric-value" id="remaining-lives">9</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- لوحة المفاتيح الافتراضية للحروف الإنجليزية -->
+      <div class="letters-panel">
+        <div class="letters-header">Click on a letter to guess:</div>
+        <div class="letters"></div>
+      </div>
+    </div>
+
+    <!-- منطقة عرض وتخمين الكلمة -->
+    <div class="guess-section">
+      <div class="section-title">Word to Guess:</div>
+      <div class="word-guess"></div>
+      <div class="hint-container">
+        <div class="hint-box" id="hint-box-container">
+          <span class="hint-label">Hint:</span>
+          <span id="word-hint"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- الفوتر البسيط -->
+    <footer class="game-footer">
+      <div class="footer-content" dir="rtl">
+        <span>لعبة الرجل المشنوق الكلاسيكية • Hangman Arcade</span>
+        <span class="footer-divider">•</span>
+        <span>جميع الحقوق محفوظة © 2026</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ملفات الصوت المرجعية والاحتياطية المضحكة -->
+  <audio id="success" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
+  <audio id="fail" src="https://assets.mixkit.co/active_storage/sfx/2578/2578-preview.mp3" preload="auto"></audio>
+  <audio id="maniacal" src="Maniacal.mp3" preload="auto"></audio>
+  <audio id="rr" src="rr.mp3" preload="auto"></audio>
+  <audio id="click" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
